@@ -30,7 +30,7 @@ import com.simplemobiletools.filemanager.pro.extensions.config
 import com.simplemobiletools.filemanager.pro.extensions.tryOpenPathIntent
 import com.simplemobiletools.filemanager.pro.fragments.ItemsFragment
 import com.simplemobiletools.filemanager.pro.fragments.MyViewPagerFragment
-import com.simplemobiletools.filemanager.pro.fragments.StorageFragment
+import com.simplemobiletools.filemanager.pro.fragments.CategoriesFragment
 import com.simplemobiletools.filemanager.pro.helpers.MAX_COLUMN_COUNT
 import com.simplemobiletools.filemanager.pro.helpers.RootHelpers
 import com.simplemobiletools.filemanager.pro.helpers.tabsList
@@ -40,7 +40,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.items_fragment.*
 import kotlinx.android.synthetic.main.items_fragment.view.*
 import kotlinx.android.synthetic.main.recents_fragment.*
-import kotlinx.android.synthetic.main.storage_fragment.*
+import kotlinx.android.synthetic.main.categories_fragment.*
 import java.io.File
 import java.util.*
 
@@ -155,7 +155,7 @@ class MainActivity : SimpleActivity() {
         menu!!.apply {
             findItem(R.id.search).isVisible = currentFragment is ItemsFragment
             findItem(R.id.sort).isVisible = currentFragment is ItemsFragment
-            findItem(R.id.change_view_type).isVisible = currentFragment !is StorageFragment
+            findItem(R.id.change_view_type).isVisible = currentFragment !is CategoriesFragment
 
             findItem(R.id.add_favorite).isVisible = currentFragment is ItemsFragment && !favorites.contains(currentFragment.currentPath)
             findItem(R.id.remove_favorite).isVisible = currentFragment is ItemsFragment && favorites.contains(currentFragment.currentPath)
@@ -165,12 +165,12 @@ class MainActivity : SimpleActivity() {
             findItem(R.id.go_home).isVisible = currentFragment is ItemsFragment && currentFragment.currentPath != config.homeFolder
             findItem(R.id.set_as_home).isVisible = currentFragment is ItemsFragment && currentFragment.currentPath != config.homeFolder
 
-            findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden && currentFragment !is StorageFragment
-            findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden && currentFragment !is StorageFragment
+            findItem(R.id.temporarily_show_hidden).isVisible = !config.shouldShowHidden && currentFragment !is CategoriesFragment
+            findItem(R.id.stop_showing_hidden).isVisible = config.temporarilyShowHidden && currentFragment !is CategoriesFragment
 
             findItem(R.id.increase_column_count).isVisible =
-                currentViewType == VIEW_TYPE_GRID && config.fileColumnCnt < MAX_COLUMN_COUNT && currentFragment !is StorageFragment
-            findItem(R.id.reduce_column_count).isVisible = currentViewType == VIEW_TYPE_GRID && config.fileColumnCnt > 1 && currentFragment !is StorageFragment
+                currentViewType == VIEW_TYPE_GRID && config.fileColumnCnt < MAX_COLUMN_COUNT && currentFragment !is CategoriesFragment
+            findItem(R.id.reduce_column_count).isVisible = currentViewType == VIEW_TYPE_GRID && config.fileColumnCnt > 1 && currentFragment !is CategoriesFragment
         }
 
         return true

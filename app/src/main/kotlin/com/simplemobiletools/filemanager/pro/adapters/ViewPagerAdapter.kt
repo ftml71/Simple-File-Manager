@@ -46,7 +46,7 @@ class ViewPagerAdapter(val activity: SimpleActivity) : PagerAdapter() {
         }
 
         if (showTabs and TAB_STORAGE_ANALYSIS != 0) {
-            fragments.add(R.layout.storage_fragment)
+            fragments.add(R.layout.categories_fragment)
         }
 
         return fragments[position]

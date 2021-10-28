@@ -17,11 +17,11 @@ import com.simplemobiletools.filemanager.pro.activities.MimeTypesActivity
 import com.simplemobiletools.filemanager.pro.activities.SimpleActivity
 import com.simplemobiletools.filemanager.pro.extensions.formatSizeThousand
 import com.simplemobiletools.filemanager.pro.helpers.*
-import kotlinx.android.synthetic.main.storage_fragment.view.*
+import kotlinx.android.synthetic.main.categories_fragment.view.*
 import java.util.*
 import kotlin.collections.HashMap
 
-class StorageFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet) {
+class CategoriesFragment(context: Context, attributeSet: AttributeSet) : MyViewPagerFragment(context, attributeSet) {
     private val SIZE_DIVIDER = 100000
 
     override fun setupFragment(activity: SimpleActivity) {
